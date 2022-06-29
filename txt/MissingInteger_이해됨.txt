@@ -1,0 +1,17 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+
+def solution(A):
+    # write your code in Python 3.6
+    pos_set = set()
+    for i in A:
+        pos_set.add(i)
+
+    pos_A = list(pos_set)
+    pos_A.sort()
+    missing_int = 1
+    for i in pos_A:
+        if i == missing_int:
+            missing_int += 1
+    return missing_int
+    pass

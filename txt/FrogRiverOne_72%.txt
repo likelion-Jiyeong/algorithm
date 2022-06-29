@@ -1,0 +1,17 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+
+def solution(X, A):
+    check = [0] * X
+    check_sum = 0
+
+    for idx,v in enumerate(A):
+        if check[v-1] == 0:
+            check[v-1] = 1
+            check_sum += 1
+            if check_sum == X:
+                return idx
+
+
+    # write your code in Python 3.6
+    pass

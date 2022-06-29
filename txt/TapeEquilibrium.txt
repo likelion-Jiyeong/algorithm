@@ -1,0 +1,19 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+
+def solution(A):
+    first = 0
+    second = sum(A)
+    
+    diff = []
+
+    for i in A:
+        first += i
+        second -= i
+        diff.append(abs(first-second))
+
+    return min(diff[:-1])
+
+    # write your code in Python 3.6
+    pass
+Analysis summary
