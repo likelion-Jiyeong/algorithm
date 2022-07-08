@@ -1,23 +1,20 @@
-def solution(records):
-    res_arr = []
-    dict = {}
+def solution(record):
+    result = []
     dict_id = {}
-    for idx, val in enumerate(records):
-        temp = val.split()
-        dict_id[temp[1]] = temp[-1]
-        if "Enter" in val:
-            msg = temp[1]+"님이 들어왔습니다."
-        elif "Leave" in val:
-            msg = temp[1]+"님이 나갔습니다."
-        
-        dict[idx] = msg
-    print(f"dict_id >> {dict_id}")
-    print(f"dict >> {dict}")
+    msg_arr = []
+    for i in record:
+        result.append(i.split())
     
-    for key,value in dict.items():
-        id = value.split('님')
-        print(f"id >>{id[0]}")
-        mes = dict_id[id[0]]+id[1]
-        print(f"mes >> {mes}")
-solution(["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"])
+    for x in result:
+        if len(x) == 3:
+            dict_id[x[1]] = x[2]
+
+    for x in result:
+        if x[0] == "Enter":
+            msg_arr.append(dict_id[x[1]]+"님이 들어왔습니다.")
+        elif x[0] == "Leave":
+            msg_arr.append(dict_id[x[1]]+"님이 나갔습니다.")
+         
+    return msg_arr
+
 
