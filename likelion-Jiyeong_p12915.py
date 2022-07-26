@@ -6,8 +6,14 @@ def solution(strings, n):
         dict[idx] = val
     
     dict_sort = sorted(dict.items(), key=lambda x: x[1])
-    for i in dict_sort:
-        answer.append(strings[i[0]])
+    idxs = [x[0] for x in dict_sort]
+    print(f"idxs >> {idxs}")
+    answer = [strings[x[0]] for x in dict_sort]
+    
+    
+    
+    # for i in dict_sort:
+    #     answer.append(strings[i[0]])
     print(f"answer >> {answer}")
     return answer
 
