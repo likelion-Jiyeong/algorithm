@@ -30,6 +30,11 @@ def solution(numbers, hand):
         else:           # 가운데 배열일 경우
             result = get_dist(i,left_now,right_now,pos,hand)
             answer.append(result)
+            if answer[-1] == 'L':
+                left_now = i
+            else:
+                right_now = i
+
     answer = ''.join(answer)
-    print(f"answer >> {answer}")
     return answer
+
