@@ -1,22 +1,18 @@
 class Solution:
     def lengthOfLongeastSubstring(self, s: str) -> int:
-        answer = 0
+        max_len, start = 0, 0
 
-        indexs: list = []
-        for i in s:
-            indexs.append(s.index(i))
+        result_dict: dict = {}
+        for i in range(len(s)):
+            if s[i] in result_dict:
+                start = max(start, result_dict[s[i]] + 1)
+            result_dict[s[i]] = i
+            max_len = max(max_len, i - start + 1)
 
-        temp = []
-        # 등차수열까지만 가져오기
-        for i in range(0, len(indexs)-1):
-            if indexs[i+1] - indexs[i] == 1:
-                temp.append(i)
-            else:
-                
-        print(f"temp >> {temp}")
 
-        return answer
+        return max_len
 
 solution = Solution()
 s = "abcabcbbb"
-solution.lengthOfLongeastSubstring(s)
+answer = solution.lengthOfLongeastSubstring(s)
+print(f"answer >> {answer}")
